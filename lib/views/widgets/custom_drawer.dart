@@ -34,7 +34,7 @@ class CustomDrawer extends StatelessWidget {
               children: [
                 Expanded(
                   child: SizedBox(
-                    height: 48,
+                    height: 20,
                   ),
                 ),
                 InActiveDrawerItem(
