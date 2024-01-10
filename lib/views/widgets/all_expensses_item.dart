@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/models/all_expensses_item_model.dart';
+import 'package:responsive_dash_board/utlis/app_styles.dart';
 import 'package:responsive_dash_board/views/widgets/all_expensses_item_header.dart';
 
 class AllExpenssesItem extends StatelessWidget {
-  const AllExpenssesItem({super.key});
+  const AllExpenssesItem({super.key, required this.itemModel});
+  final AllExpenssesItemModel itemModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +18,35 @@ class AllExpenssesItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
       ),
-      child: const Column(children: [
-        AllExpenssesItemHeader(image: '',),
-      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AllExpenssesItemHeader(
+            image: itemModel.image,
+          ),
+          const SizedBox(
+            height: 34,
+          ),
+          Text(
+            itemModel.title,
+            style: AppStyles.styleSemiBold16,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            itemModel.date,
+            style: AppStyles.styleRegular14,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            itemModel.price,
+            style: AppStyles.styleSemiBold24,
+          ),
+        ],
+      ),
     );
   }
 }
