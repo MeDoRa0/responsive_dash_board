@@ -12,9 +12,12 @@ class AllExpensess extends StatelessWidget {
       child: Column(
         children: [
           AllExpensessHeader(),
-          AllExpenssesItemsListView(),
           SizedBox(
             height: 16,
+          ),
+          AllExpenssesItemsListView(),
+          SizedBox(
+            height: 24,
           ),
         ],
       ),
