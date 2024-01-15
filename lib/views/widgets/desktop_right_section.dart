@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/utlis/app_styles.dart';
-import 'package:responsive_dash_board/views/widgets/my_card.dart';
 import 'package:responsive_dash_board/views/widgets/mycards_page_view.dart';
 
 class DesktopRightSection extends StatelessWidget {
@@ -20,7 +19,9 @@ class DesktopRightSection extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Expanded(child: MyCardsPageView()),
+          Expanded(
+            child: MyCardsPageView(),
+          ),
         ],
       ),
     );
