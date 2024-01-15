@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_dash_board/views/widgets/all_expensess.dart';
 import 'package:responsive_dash_board/views/widgets/custom_drawer.dart';
-import 'package:responsive_dash_board/views/widgets/quick_invoice.dart';
+import 'package:responsive_dash_board/views/widgets/desktop_middle_section.dart';
 
 class DesktopLayout extends StatelessWidget {
   const DesktopLayout({super.key});
@@ -18,21 +17,7 @@ class DesktopLayout extends StatelessWidget {
         ),
         Expanded(
           flex: 2,
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: AllExpensess(),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 24,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: QuickInvoice(),
-              ),
-            ],
-          ),
+          child: DesktopMiddelSection(),
         ),
       ],
     );
