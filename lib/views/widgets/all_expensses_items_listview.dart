@@ -34,18 +34,61 @@ class _AllExpenssesItemsListViewState extends State<AllExpenssesItemsListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(0);
+            },
+            child: AllExpenssesItem(
+              isSelected: selectedIndex == 0,
+              itemModel: items[0],
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(1);
+            },
+            child: AllExpenssesItem(
+              isSelected: selectedIndex == 1,
+              itemModel: items[1],
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(2);
+            },
+            child: AllExpenssesItem(
+              isSelected: selectedIndex == 2,
+              itemModel: items[2],
+            ),
+          ),
+        ),
+      ],
+    );
+    return Row(
       //this code is to build all expenses items and  put padding on middle widget in all expenses item
-      children: items.asMap().entries.map((e) {
-        int index = e.key;
-        var item = e.value;
-        if (index == 1) {
+      children: items.asMap().entries.map(
+        (e) {
+          int index = e.key;
+          var item = e.value;
           return Expanded(
             child: GestureDetector(
               onTap: () {
                 updateIndex(index);
               },
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: index == 1 ? 12 : 0),
                 child: AllExpenssesItem(
                   itemModel: item,
                   isSelected: selectedIndex == index,
@@ -53,26 +96,16 @@ class _AllExpenssesItemsListViewState extends State<AllExpenssesItemsListView> {
               ),
             ),
           );
-        } else {
-          return Expanded(
-            child: GestureDetector(
-              onTap: () {
-                updateIndex(index);
-              },
-              child: AllExpenssesItem(
-                itemModel: item,
-                isSelected: selectedIndex == index,
-              ),
-            ),
-          );
-        }
-      }).toList(),
+        },
+      ).toList(),
     );
   }
 
   void updateIndex(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
+    setState(
+      () {
+        selectedIndex = index;
+      },
+    );
   }
 }

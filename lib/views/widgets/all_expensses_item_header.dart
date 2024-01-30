@@ -15,18 +15,26 @@ class AllExpenssesItemHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 60,
-          height: 60,
-          decoration: ShapeDecoration(
-            color: iconBackground ?? const Color(0xFFFAFAFA),
-            shape: const OvalBorder(),
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              image,
-              colorFilter: ColorFilter.mode(
-                  iconColor ?? const Color(0xFF4EB7F2), BlendMode.srcIn),
+        //flexible is used to reduce the widget size if the size is small but will not increase the widget size above the fixed width or height
+        Flexible(
+          //i use constrainedBox to force AspectRatio to not exceed the height and width in this case it is 60
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 60, maxWidth: 60),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                decoration: ShapeDecoration(
+                  color: iconBackground ?? const Color(0xFFFAFAFA),
+                  shape: const OvalBorder(),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    image,
+                    colorFilter: ColorFilter.mode(
+                        iconColor ?? const Color(0xFF4EB7F2), BlendMode.srcIn),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
